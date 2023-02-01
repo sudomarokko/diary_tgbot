@@ -148,7 +148,7 @@ def logwriter(logs):
 
 
 def tgbot():
-    bot = telebot.TeleBot("5813832249:AAFT9dzOYgNkG9h_hdtk6KXk-FqfxE4l-us")
+    bot = telebot.TeleBot("token")
 
     @bot.message_handler(commands=['start'])
     def send_welcome(message):
