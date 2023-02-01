@@ -162,7 +162,7 @@ class logs(StatesGroup):
 
 def tgbot():
 
-    bot = Bot("5813832249:AAFT9dzOYgNkG9h_hdtk6KXk-FqfxE4l-us")
+    bot = Bot("token")
     storage = MemoryStorage()
     dp = Dispatcher(bot, storage=storage)
 
