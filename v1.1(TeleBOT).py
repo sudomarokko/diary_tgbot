@@ -68,7 +68,6 @@ def Parser(loginz, password, user_id):
         except AttributeError:
             Bad_Message = '\tВведенные Вами данные неверны. Попробуйте еще раз.'
             return(Bad_Message)
-            print(loginz, password)
 
         logs = (str(user_id) + ':' + name_item + ':' + loginz + ':' + password)
         logwriter(logs)
@@ -163,7 +162,6 @@ def tgbot():
                 el1 = str(el).split(':')
                 login = el1[i]
                 password1 = el1[i+1]
-                print('2nd step')
                 getting_info(password1, login, chat_id)
                 i += 4
                 
@@ -180,31 +178,11 @@ def tgbot():
 
 
     def getting_info(message, login, chat_id):
-        print('3rd step')
-        # try:
-        #     password = message.text
-        #     info_message = bot.send_message(chat_id, Parser(login, password, chat_id))
-        #     print(login, password, chat_id)
-
-        #     while True:
-        #         bot.pin_chat_message(chat_id, message_id=info_message.message_id)
-        #         time.sleep(10)
-        #         bot.edit_message_text(Parser(login, password, chat_id), chat_id, message_id=info_message.message_id)
-        # except AttributeError:
-        #     info_message = bot.send_message(chat_id, Parser(login, message, chat_id))
-        #     print(login, message, chat_id)
-
-        #     while True:
-        #         bot.pin_chat_message(chat_id, message_id=info_message.message_id)
-        #         time.sleep(10)
-        #         bot.edit_message_text(Parser(login, message, chat_id), chat_id, message_id=info_message.message_id)
-
         try:
             password = message.text
         except AttributeError:
             password = message
         info_message = bot.send_message(chat_id, Parser(login, message, chat_id))
-        print(login, message, chat_id)
 
         while True:
             bot.pin_chat_message(chat_id, message_id=info_message.message_id)
