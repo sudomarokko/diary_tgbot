@@ -192,7 +192,6 @@ def tgbot():
     async def get_login(message:types.Message, state: FSMContext):
         login = message.text
         await state.update_data(login=login)
-        print('логин', {login})
         await bot.send_message(message.chat.id, "Введите пароль")   
         await logs.password.set()
 
@@ -204,14 +203,11 @@ def tgbot():
         login10 = data.get('login')
         password10 = data.get('password')
         chat_id = message.from_user.id
-
-        print(login10, password10, chat_id)
         await getting_info(password10, login10, chat_id)
 
 
 
     async def getting_info(password, login, chat_id):
-        print(login,password,chat_id)
         info_message = await bot.send_message(chat_id, Parser(login, password, chat_id))
 
         while True:
